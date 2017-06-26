@@ -1,0 +1,19 @@
+.forecast {
+	width: 95%;
+	margin: 10px auto;
+	padding: 10px;
+	text-align: center;
+
+	* {
+		display: inline-block;
+		border: 2px solid green;
+	}
+
+	border: 2px solid blue;
+}
+
+.forecast:after {
+	display: table;
+	clear: both;
+	content: " ";
+}
