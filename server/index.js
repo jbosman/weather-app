@@ -1,16 +1,22 @@
 'use strict';
 
-const express = require('express');
-const app = express();
+const chalk = 	require('chalk');
 
-const path = require('path');
+(function startServer(){
 
-const ROOT = path.join(__dirname, '../');
-const IndexHTML = path.join(ROOT, 'browser/index.html');
-const PUBLIC = path.join(ROOT, 'public');
+	const PORT = process.env.PORT || 3000;
+	const app = require('./app')();
 
-app.use(express.static(PUBLIC));
+	app.listen(  PORT, () => { 
+		console.log(`${chalk.blue('Listening on port')} ${chalk.magenta(PORT)}${chalk.blue('!')}`); 
+	})
+}());
 
-app.get('/', (req, res) => { res.sendFile(IndexHTML) });
+// const ROOT = path.join(__dirname, '../');
+// const IndexHTML = path.join(ROOT, 'browser/index.html');
+// const PUBLIC = path.join(ROOT, 'public');
 
-app.listen( '3000', () => { console.log('Listening on port 3000!'); })
+// app.use(express.static(PUBLIC));
+
+// app.get('/', (req, res) => { res.sendFile(IndexHTML) });
+

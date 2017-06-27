@@ -1,6 +1,6 @@
 ### Developer Adds ###
 node_modules
-public/bundle.js
+public/*
 
 ### Generated Generic Ignores ###
 # Created by https://www.gitignore.io/api/macos
