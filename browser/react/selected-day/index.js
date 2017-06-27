@@ -10,6 +10,7 @@ export default function SelectedDay(props){
 			<img src='https://fillmurray.com/200/200' alt='Weather Image' />
 			<h3>Date Info Component</h3>
 			<h3>Weather Data Component</h3>
+			<h3>{ props.selected.time }</h3>
 		</div>
 	)
 
