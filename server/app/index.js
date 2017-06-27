@@ -7,6 +7,7 @@ const appVariables = require('./app-variables');
 
 module.exports = () => {
 	require('./configure')(app);
+	require('./api')(app);
 
 	app.use( (req, res, next) => {
 		let error;
