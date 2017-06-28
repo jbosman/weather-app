@@ -25,6 +25,26 @@ function convertIcon(darkSkyIconName){
 	return converter[darkSkyIconName];
 }
 
+function loadTemperature(data){
+ return data.temperature ?
+		<h3>
+			<span className='tempLabel'>Temperature: </span>
+			<span className='tempValue'>{data.temperature}</span>
+		</h3>
+		:
+		<div>
+			<h3>
+				<span className='tempLabel'>Temp Min: </span>
+				<span className='tempValue'>{data.temperatureMin}</span>
+			</h3>
+			<h3>
+				<span className='tempLabel'>Temp Max: </span>
+				<span className='tempValue'>{data.temperatureMax}</span>
+			</h3>
+		</div>
+			
+}
+
 export default function WeatherInfo(props){
 	return (
 		<div className='weather-info'>
@@ -32,10 +52,7 @@ export default function WeatherInfo(props){
 				<i className={`wi ${convertIcon(props.data.icon)}`}></i>
 			</div>
 			<h3>{ props.data.summary ? props.data.summary : '- - - - -' }</h3>
-			<h3>
-				<span className='tempLabel'>Temperature: </span>
-				<span className='tempValue'>{props.data.temperature}</span>
-			</h3>
+			{ loadTemperature(props.data) }
 			<h3>
 				<span className='tempLabel'>Humidity: </span>
 				<span className='tempValue'>{props.data.humidity}</span>
@@ -47,6 +64,3 @@ export default function WeatherInfo(props){
 		</div>
 	)
 }
-
-			
-//<img src='conditions.png' className={`mostly-clear-day2 ${props.data.icon}`}   alt='Selected Date Weather Image' />
