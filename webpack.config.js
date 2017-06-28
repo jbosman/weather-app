@@ -25,7 +25,15 @@ module.exports = {
 				exclude: /(node_modules)/,
 				test: /\.(jpg|png|svg)$/,
 				loader: "url-loader"
-			}
+			},
+			{
+				exclude: /(node_modules)/,
+			  	test: /\.(svg|ttf|eot|woff|woff2)$/,
+			  	loader: 'file-loader',
+			  	options: {
+			    	name: 'fonts/[name].[ext]',
+				},
+			},
 		]
 	}
 }
