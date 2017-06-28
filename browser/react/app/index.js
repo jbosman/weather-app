@@ -6,6 +6,7 @@ import axios from 'axios';
 // Components
 import SelectectedDay from '../selected-day';
 import Forecast from '../forecast';
+import ForecastDay from '../forecast-day';
 
 require('./index.scss');
 
@@ -43,6 +44,13 @@ export default class App extends Component {
 	  
 	}
 
+	loadForecast(){
+		console.log('forecast', this.state.forecast)
+		return this.state.forecast.map( (day, i) => {
+			return <ForecastDay key={i} data={day} />
+		})
+	}
+
 	componentDidMount(){
 		this.getLocation()
 		.then( position => {
@@ -57,7 +65,7 @@ export default class App extends Component {
 				},
 				selected: weatherInfo.currently,
 				current: weatherInfo.currently,
-				forecase: weatherInfo.daily
+				forecast: weatherInfo.daily.data
 			})
 		})
 		.catch(console.error)
@@ -68,11 +76,7 @@ export default class App extends Component {
 			<div className='app-component'>
 				<SelectectedDay selected={this.state.selected} />
 				<Forecast handleDayClick={this.handleDayClick} >
-					<h1>Day 1</h1>
-					<h1>Day 2</h1>
-					<h1>Day 3</h1>
-					<h1>Day 4</h1>
-					<h1>Day 5</h1>
+					{this.loadForecast()}
 				</Forecast>
 			</div>
 		)

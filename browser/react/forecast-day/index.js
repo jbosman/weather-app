@@ -7,12 +7,11 @@ import WeatherInfo from '../weather-info';
 
 require('./index.scss');
 
-export default function SelectedDay(props){
+export default function ForecastDay(props){
 	return (
-		<div className='selected-day'>
-			<DateInfo timestamp={props.selected.time} />
-			<WeatherInfo data={props.selected} />
+		<div className='forecast-day'>
+			<DateInfo timestamp={props.data.time} />
+			<WeatherInfo data={props.data} />
 		</div>
 	)
-
 }

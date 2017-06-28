@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-require('../../weather-icons/scss/weather-icons.min.scss');
+require('../weather-icons/scss/weather-icons.min.scss');
 require('./index.scss');
 
 // Converts from the Dark Sky Icon Name to the Weather Icon
@@ -30,8 +30,6 @@ export default function WeatherInfo(props){
 		<div className='weather-info'>
 			<div className='conditions-container'>
 				<i className={`wi ${convertIcon(props.data.icon)}`}></i>
-				<div className='vert' />
-				<div className='hor' />
 			</div>
 			<h3>{ props.data.summary ? props.data.summary : '- - - - -' }</h3>
 			<h3>
