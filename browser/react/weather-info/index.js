@@ -25,21 +25,29 @@ function convertIcon(darkSkyIconName){
 	return converter[darkSkyIconName];
 }
 
+function whole(value){
+	return typeof value === 'number' ? value.toFixed(0) : '--' ;
+}
+
+function formatHumidity(value){
+	return typeof value === 'number' ? ( value * 100 ).toFixed(0) + ' %' : '-- %';
+}
+
 function loadTemperature(data){
  return data.temperature ?
 		<h3>
 			<span className='tempLabel'>Temperature: </span>
-			<span className='tempValue'>{data.temperature}</span>
+			<span className='tempValue'>{whole(data.temperature)}</span>
 		</h3>
 		:
 		<div>
 			<h3>
 				<span className='tempLabel'>Temp Min: </span>
-				<span className='tempValue'>{data.temperatureMin}</span>
+				<span className='tempValue'>{whole(data.temperatureMin)}</span>
 			</h3>
 			<h3>
 				<span className='tempLabel'>Temp Max: </span>
-				<span className='tempValue'>{data.temperatureMax}</span>
+				<span className='tempValue'>{whole(data.temperatureMax)}</span>
 			</h3>
 		</div>
 			
@@ -55,11 +63,11 @@ export default function WeatherInfo(props){
 			{ loadTemperature(props.data) }
 			<h3>
 				<span className='tempLabel'>Humidity: </span>
-				<span className='tempValue'>{props.data.humidity}</span>
+				<span className='tempValue'>{formatHumidity(props.data.humidity)}</span>
 			</h3>
 			<h3>
 				<span className='tempLabel'>Wind Speed: </span>
-				<span className='tempValue'>{props.data.windSpeed}</span>
+				<span className='tempValue'>{whole(props.data.windSpeed)}</span>
 			</h3>
 		</div>
 	)
