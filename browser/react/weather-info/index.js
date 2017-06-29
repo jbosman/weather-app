@@ -56,7 +56,7 @@ export default function WeatherInfo(props){
 				<i className={`wi ${convertIcon(props.data.icon)}`}></i>
 			</div>
 			<h3>{ props.data.summary ? props.data.summary : '- - - - -' }</h3>
-			<h3 hidden={ !isValueReady(props.data.temperature) }>
+			<h3 className='currentTemp'>
 				<span className='tempLabel'>Currently: </span>
 				<span className='tempValue'>{ displayTemp(props.data.temperature) }</span>
 			</h3>
