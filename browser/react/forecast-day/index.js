@@ -9,7 +9,9 @@ require('./index.scss');
 
 export default function ForecastDay(props){
 	return (
-		<div className='forecast-day'>
+		<div className='forecast-day' onClick={ () => {
+			props.clickHandler(props.dayNum)
+		}}>
 			<DateInfo timestamp={props.data.time} />
 			<WeatherInfo data={props.data} />
 		</div>

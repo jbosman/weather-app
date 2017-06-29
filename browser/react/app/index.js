@@ -20,10 +20,11 @@ export default class App extends Component {
 			current: {},
 			forecast: []
 		}
+		this.handleDayClick = this.handleDayClick.bind(this);
 	}
 
 	handleDayClick(dayID){
-		if( this.state.forcast.length )
+		if( this.state.forecast.length )
 			this.setState({ selected: this.state.forecast[dayID] });
 	}
 
@@ -45,9 +46,8 @@ export default class App extends Component {
 	}
 
 	loadForecast(){
-		console.log('forecast', this.state.forecast)
 		return this.state.forecast.map( (day, i) => {
-			return <ForecastDay key={i} data={day} />
+			return <ForecastDay key={i} data={day} dayNum={i} clickHandler={this.handleDayClick} />
 		})
 	}
 
@@ -58,13 +58,14 @@ export default class App extends Component {
 		})
 		.then( resp => {
 			const weatherInfo = resp.data;
+			weatherInfo.daily.data[0] = Object.assign( weatherInfo.currently, weatherInfo.daily.data[0] );
+			console.log(weatherInfo)
 			this.setState({
 				coordinates: { 
 					longitude: weatherInfo.longitude, 
 					latitude: weatherInfo.latitude 
 				},
-				selected: weatherInfo.currently,
-				current: weatherInfo.currently,
+				selected: weatherInfo.daily.data[0],
 				forecast: weatherInfo.daily.data
 			})
 		})
@@ -75,7 +76,7 @@ export default class App extends Component {
 		return (
 			<div className='app-component'>
 				<SelectectedDay selected={this.state.selected} />
-				<Forecast handleDayClick={this.handleDayClick} >
+				<Forecast>
 					{this.loadForecast()}
 				</Forecast>
 			</div>
