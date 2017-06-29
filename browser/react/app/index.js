@@ -18,14 +18,20 @@ export default class App extends Component {
 			coordinates: {},
 			selected: {},
 			current: {},
-			forecast: []
+			forecast: [],
+			background: 'loading'
 		}
 		this.handleDayClick = this.handleDayClick.bind(this);
 	}
 
 	handleDayClick(dayID){
-		if( this.state.forecast.length )
-			this.setState({ selected: this.state.forecast[dayID] });
+		if( this.state.forecast.length ){
+			this.setState({ 
+				selected: this.state.forecast[dayID], 
+				background: this.state.forecast[dayID].icon 
+			});
+		}
+
 	}
 
 	getLocation(){
@@ -59,14 +65,14 @@ export default class App extends Component {
 		.then( resp => {
 			const weatherInfo = resp.data;
 			weatherInfo.daily.data[0] = Object.assign( weatherInfo.currently, weatherInfo.daily.data[0] );
-			console.log(weatherInfo)
 			this.setState({
 				coordinates: { 
 					longitude: weatherInfo.longitude, 
 					latitude: weatherInfo.latitude 
 				},
 				selected: weatherInfo.daily.data[0],
-				forecast: weatherInfo.daily.data
+				forecast: weatherInfo.daily.data,
+				background: weatherInfo.daily.data[0].icon
 			})
 		})
 		.catch(console.error)
@@ -74,7 +80,7 @@ export default class App extends Component {
 
 	render(){
 		return (
-			<div className='app-component'>
+			<div className={`app-component hero-background ${this.state.background}`}>
 				<SelectectedDay selected={this.state.selected} />
 				<Forecast>
 					{this.loadForecast()}

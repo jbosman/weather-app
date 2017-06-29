@@ -4,3 +4,33 @@
 
 	padding: 10px;
 }
+
+.hero-background {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+.loading {
+	background-color: blue;
+}
+
+$conditions: (
+	'clear-day',
+	'clear-night',
+	'rain',
+	'snow',
+	'sleet',
+	'wind',
+	'fog',
+	'cloudy',
+	'partly-cloudy-day',
+	'partly-cloudy-night'
+);
+
+
+@each $condition in $conditions {
+	.#{$condition} {
+		background-image: url( #{ "./background-images/" + $condition + ".jpg"} );
+	}
+}
