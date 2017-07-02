@@ -1,0 +1,38 @@
+.temperature {
+	display: inline-block;
+	position: relative;
+	height: 125px;
+	width: 125px;
+
+	.wi-thermometer {
+		position: relative;
+		top: 30%;
+		left: 36%;
+		font-size: 4em;
+
+		.wi-fahrenheit, .wi-celsius {
+			position: relative;
+			margin: 0;
+			top: -25px;
+		}
+
+		.high, .low { 
+			position: relative;
+			font-size: 40%;
+			
+			text-align: right;
+		}
+
+		.high{
+			top: -2em;
+			left: -3.75em;
+		}
+
+		.low {
+			top: -1em;
+			left: -4.75em;
+		}
+	}
+
+
+}

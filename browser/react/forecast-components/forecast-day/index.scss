@@ -1,18 +1,12 @@
 .forecast-day {
 	display: inline-block;
-	margin: 25px 5px;
-	padding: 10px 5px;
-	width: 300px;
 	vertical-align: top;
+	margin: 25px 5px;
+	padding: 10px 0px;
+	width: 300px;
 
 	background-color: rgba( 22,22,22, 0.75);
 	border-radius: 10px;
 
-	.currentTemp {
-		display: none;
-	}
-
-	* {
-		margin-top: 5px;
-	}
+	.weather-data-selected { display: none }
 }

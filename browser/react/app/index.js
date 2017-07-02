@@ -4,9 +4,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 // Components
-import SelectectedDay from '../selected-day';
-import Forecast from '../forecast';
-import ForecastDay from '../forecast-day';
+import LoadingPage 	from '../loading-page';
+import FeaturedDay 	from '../featured-components/featured-day';
+import Forecast 	from '../forecast-components/forecast';
+import ForecastDay 	from '../forecast-components/forecast-day';
 
 require('./index.scss');
 
@@ -16,7 +17,7 @@ export default class App extends Component {
 		super();
 		this.state = {
 			coordinates: {},
-			selected: {},
+			featured: {},
 			current: {},
 			forecast: [],
 			background: 'loading'
@@ -27,7 +28,7 @@ export default class App extends Component {
 	handleDayClick(dayID){
 		if( this.state.forecast.length ){
 			this.setState({ 
-				selected: this.state.forecast[dayID], 
+				featured: this.state.forecast[dayID], 
 				background: this.state.forecast[dayID].icon 
 			});
 		}
@@ -70,7 +71,7 @@ export default class App extends Component {
 					longitude: weatherInfo.longitude, 
 					latitude: weatherInfo.latitude 
 				},
-				selected: weatherInfo.daily.data[0],
+				featured: weatherInfo.daily.data[0],
 				forecast: weatherInfo.daily.data,
 				background: weatherInfo.daily.data[0].icon
 			})
@@ -79,13 +80,17 @@ export default class App extends Component {
 	}
 
 	render(){
-		return (
-			<div className={`app-component hero-background ${this.state.background}`}>
-				<SelectectedDay selected={this.state.selected} />
-				<Forecast>
-					{this.loadForecast()}
-				</Forecast>
-			</div>
-		)
+		if( !this.state.forecast.length )
+			return <LoadingPage />;
+		else {
+			return (
+				<div className={`app-component hero-background ${this.state.background}`}>
+					<FeaturedDay featured={this.state.featured} />
+					<Forecast>
+						{this.loadForecast()}
+					</Forecast>
+				</div>
+			)
+		}
 	}
 }

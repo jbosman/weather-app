@@ -1,0 +1,12 @@
+.loading-component {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+
+	img {
+		position: absolute;
+		top: 30%;
+		left: 50%;
+		transform: translate( -200px, -75px );
+	}
+}

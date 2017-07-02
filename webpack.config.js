@@ -34,6 +34,14 @@ module.exports = {
 			    	name: 'fonts/[name].[ext]',
 				},
 			},
+			{
+				exclude: /(node_modules)/,
+			  	test: /\.gif$/,
+			  	loader: 'file-loader',
+			  	options: {
+			  		name: 'gifs/[name].[ext]'
+			  	}
+			}
 		]
 	}
 }

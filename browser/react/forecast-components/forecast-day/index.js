@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-import DateInfo from '../date-info';
-import WeatherInfo from '../weather-info';
+import DateInfo from '../../common-components/date-info';
+import ForecastDayWeatherInfo from '../forecast-day-weather-info';
 
 require('./index.scss');
 
@@ -13,7 +13,7 @@ export default function ForecastDay(props){
 			props.clickHandler(props.dayNum)
 		}}>
 			<DateInfo timestamp={props.data.time} />
-			<WeatherInfo data={props.data} />
+			<ForecastDayWeatherInfo data={props.data} />
 		</div>
 	)
 }
