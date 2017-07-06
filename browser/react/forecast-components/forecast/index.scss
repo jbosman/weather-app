@@ -5,6 +5,10 @@
 	text-align: center;
 }
 
+.forecast > * {
+	display: inline-block;
+}
+
 .forecast:after {
 	display: table;
 	clear: both;
