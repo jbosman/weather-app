@@ -9,6 +9,7 @@ module.exports = app => {
 	const CURRENT_QUERY = 	`?exclude=[minutely,hourly,daily,alerts,flags]`;
 	const WEEK_QUERY = 		`?exclude=[currently,minutely,hourly,alerts,flags]`;
 	const CURRENT_AND_WEEK_QUERY = `?exclude=[minutely,hourly,alerts,flags]`;
+	const CURRENT_HOURLY_AND_WEEK_QUERY = `?exclude=[minutely,alerts,flags]`;
 
 	const router = require('express').Router();
 
@@ -18,8 +19,10 @@ module.exports = app => {
 				return CURRENT_QUERY;
 			case 'week': 
 				return WEEK_QUERY;
-			default: 
+			case 'current&week':
 				return CURRENT_AND_WEEK_QUERY;
+			default: 
+				return CURRENT_HOURLY_AND_WEEK_QUERY;
 		}
 	}
 
