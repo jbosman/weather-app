@@ -30,7 +30,7 @@ module.exports = app => {
 		const URL = `${WEATHER_API_START}/${req.params.lat},${req.params.long}${queryType}`;
 		
 		axios.get( URL )
-		.then( resp => { 
+		.then( resp => {
 			res.send(resp.data) 
 		})
 		.catch(next)

@@ -12,11 +12,3 @@ const chalk = 	require('chalk');
 	})
 }());
 
-// const ROOT = path.join(__dirname, '../');
-// const IndexHTML = path.join(ROOT, 'browser/index.html');
-// const PUBLIC = path.join(ROOT, 'public');
-
-// app.use(express.static(PUBLIC));
-
-// app.get('/', (req, res) => { res.sendFile(IndexHTML) });
-
