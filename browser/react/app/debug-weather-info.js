@@ -1,3 +1,60 @@
+// * - indicates matching property
+
+// Hourly properties
+	//* "time": 1499367600,
+	//* "summary": "Clear",
+	//* "icon": "clear-day",
+	//* "precipIntensity": 0.002,
+	//* "precipProbability": 0.01,
+	//* "precipType": "rain",
+	//  "temperature": 64.32,
+	//  "apparentTemperature": 64.32,
+	//* "dewPoint": 53.44,
+	//* "humidity": 0.68,
+	//* "windSpeed": 7.26,
+	//* "windGust": 9.05,
+	//* "windBearing": 240,
+	//* "visibility": 10,
+	//* "cloudCover": 0.16,
+	//* "pressure": 1018.04,
+	//* "ozone": 290.59,
+	//* "uvIndex": 9
+
+// Day Properties
+	//* "time": 1499497200,
+	//* "summary": "Foggy in the morning.",
+	//* "icon": "fog",
+	//  "sunriseTime": 1499518582,
+	//  "sunsetTime": 1499571327,
+	//  "moonPhase": 0.48,
+	//* "precipIntensity": 0.0005,
+	//  "precipIntensityMax": 0.0014,
+	//  "precipIntensityMaxTime": 1499580000,
+	//* "precipProbability": 0.02,
+	//* "precipType": "rain",
+	//  "temperatureMin": 49.99,
+	//  "temperatureMinTime": 1499515200,
+	//  "temperatureMax": 64.36,
+	//  "temperatureMaxTime": 1499551200,
+	//  "apparentTemperatureMin": 47.82,
+	//  "apparentTemperatureMinTime": 1499515200,
+	//  "apparentTemperatureMax": 64.36,
+	//  "apparentTemperatureMaxTime": 1499551200,
+	//* "dewPoint": 52.84,
+	//* "humidity": 0.87,
+	//* "windSpeed": 7.14,
+	//* "windGust": 12.45,
+	//  "windGustTime": 1499554800,
+	//* "windBearing": 241,
+	//* "visibility": 10,
+	//* "cloudCover": 0.36,
+	//* "pressure": 1013.57,
+	//* "ozone": 291.62,
+	//* "uvIndex": 10,
+	//  "uvIndexTime": 1499544000
+
+
+
 export default function getWeatherDataObj(){
 	return {
 			"latitude": 37.8267,

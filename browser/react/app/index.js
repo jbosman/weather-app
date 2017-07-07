@@ -126,13 +126,15 @@ export default class App extends Component {
 		else {
 			return (
 				<div className={`app-component hero-background ${this.state.background}`}>
-					<FeaturedDay featured={this.state.featured} />
-					<Forecast>
-						{this.loadHourlyForecast()}
-					</Forecast>
-					<Forecast>
-						{this.loadWeeklyForecast()}
-					</Forecast>
+					<div className='app-border'>
+						<FeaturedDay featured={this.state.featured} />
+						<Forecast>
+							{this.loadHourlyForecast()}
+						</Forecast>
+						<Forecast>
+							{this.loadWeeklyForecast()}
+						</Forecast>
+					</div>
 				</div>
 			)
 		}
