@@ -88,16 +88,17 @@ export default class App extends Component {
 		// })
 		// .then( resp => {
 		// 	const weatherInfo = resp.data;
-		// 	console.log(JSON.stringify(resp.data))
-		// 	weatherInfo.daily.data[0] = Object.assign( weatherInfo.currently, weatherInfo.daily.data[0] );
+			
 		// 	this.setState({
 		// 		coordinates: { 
 		// 			longitude: weatherInfo.longitude, 
 		// 			latitude: weatherInfo.latitude 
 		// 		},
-		// 		featured: weatherInfo.daily.data[0],
-		// 		forecast: weatherInfo.daily.data,
-		// 		background: weatherInfo.daily.data[0].icon
+		// 		featured: weatherInfo.currently,
+		// 		currently: weatherInfo.currently,
+		// 		hourly: weatherInfo.hourly,
+		// 		forecast: weatherInfo.daily,
+		// 		background: weatherInfo.currently.icon
 		// 	})
 		// })
 		// .catch(console.error)
