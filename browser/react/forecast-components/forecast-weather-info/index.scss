@@ -1,24 +1,24 @@
-.forecast-day-weather-info {
+.forecast-weather-info {
 	margin: 20px 0;
 }
 
-.forecast-day-weather-info > * {
+.forecast-weather-info > * {
 	float: left;
 	height: 125px;
 	width: 	125px;
 }
 
-.forecast-day-weather-info > *:nth-child(even){
+.forecast-weather-info > *:nth-child(even){
 	margin-left: 5px;
 	margin-right: 20px;
 }
 
-.forecast-day-weather-info > *:nth-child(odd){
+.forecast-weather-info > *:nth-child(odd){
 	margin-left: 20px;
 	margin-right: 5px;
 }
 
-.forecast-day-weather-info:after {
+.forecast-weather-info:after {
 	display: table;
 	clear: both;
 	content: ' ';

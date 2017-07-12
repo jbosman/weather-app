@@ -9,8 +9,7 @@ import getWeatherDataObj from './debug-weather-info';
 import LoadingPage 	from '../loading-page';
 import FeaturedDay 	from '../featured-components/featured-day';
 import Forecast 	from '../forecast-components/forecast';
-import ForecastHour from '../forecast-components/forecast-hour';
-import ForecastDay 	from '../forecast-components/forecast-day';
+import ForecastItem from '../forecast-components/forecast-item';
 
 
 require('./index.scss');
@@ -27,24 +26,16 @@ export default class App extends Component {
 			forecast: [],
 			background: 'loading'
 		}
-		this.handleDayClick = this.handleDayClick.bind(this);
-		this.handleHourClick = this.handleHourClick.bind(this);
+		this.handleUserClick = this.handleUserClick.bind(this);
 	}
 
-	handleHourClick(hourID){
-		if( this.state.hourly && this.state.hourly.data.length ){
-			this.setState({ 
-				featured: this.state.hourly.data[hourID], 
-				background: this.state.hourly.data[hourID].icon 
-			});
-		}
-	}
+	handleUserClick( index, isHourOrDay ){
+		const dataArray = isHourOrDay === 'hour' ? this.state.hourly : this.state.forecast;
 
-	handleDayClick(dayID){
-		if( this.state.forecast && this.state.forecast.data.length  ){
+		if( dataArray.data && dataArray.data.length ){
 			this.setState({ 
-				featured: this.state.forecast.data[dayID], 
-				background: this.state.forecast.data[dayID].icon 
+				featured: dataArray.data[index], 
+				background: dataArray.data[index].icon 
 			});
 		}
 	}
@@ -66,17 +57,29 @@ export default class App extends Component {
 	  
 	}
 
-	loadHourlyForecast(){
-		const displayNumOfHours = 12;
-		return this.state.hourly.data.map( (hour, i) => {
-			if( i < displayNumOfHours)
-				return <ForecastHour key={i} data={hour} hourNum={i} clickHandler={this.handleHourClick} />
-		})
-	}
+	loadForecast(isHoursOrDays){
+		const numOfHoursToDisplay = 12;
 
-	loadWeeklyForecast(){
-		return this.state.forecast.data.map( (day, i) => {
-			return <ForecastDay key={i} data={day} dayNum={i} clickHandler={this.handleDayClick} />
+		const numOfForecastItems = 
+			isHoursOrDays === 'hours' ? 
+				numOfHoursToDisplay 
+				: this.state.forecast.data.length;
+
+		const data = 
+			isHoursOrDays === 'hours' ? 
+				this.state.hourly.data 
+				: this.state.forecast.data;
+
+		return data.map( ( itemData, i) => {
+			if( i < numOfForecastItems ){
+				itemData.isHourOrDay = isHoursOrDays;
+				return <ForecastItem 
+							key={i} 
+							data={itemData} 
+							index={i} 
+							clickHandler={this.handleUserClick} 
+						/>
+			}
 		})
 	}
 
@@ -129,10 +132,10 @@ export default class App extends Component {
 					<div className='app-border'>
 						<FeaturedDay featured={this.state.featured} />
 						<Forecast>
-							{this.loadHourlyForecast()}
+							{this.loadForecast('hours')}
 						</Forecast>
 						<Forecast>
-							{this.loadWeeklyForecast()}
+							{this.loadForecast('days')}
 						</Forecast>
 					</div>
 				</div>

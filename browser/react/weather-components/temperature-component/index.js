@@ -10,7 +10,7 @@ function CorF(){
 }
 
 function wholeNumber(value){
-	return value.toFixed(0);
+	return value ? value.toFixed(0) : '';
 }
 
 export default function Temperature(props){
@@ -18,8 +18,8 @@ export default function Temperature(props){
 		<div className='temperature'>
 			<i 	className={`wi wi-thermometer`}>
 				<i className={`wi ${CorF()}` } />
-				<span className='high'>{ wholeNumber(props.high) }</span>
-				<span className='low'>{ wholeNumber(props.low) }</span>
+				<div className='high'>{ wholeNumber(props.high) }</div>
+				<div className='low'>{ wholeNumber(props.low) }</div>
 			</i>
 		</div>
 	)
