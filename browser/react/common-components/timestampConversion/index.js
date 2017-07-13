@@ -10,8 +10,6 @@ export function formatDateString(date){
 }
 
 export function formatHourString(date){
-	console.log('date: ', date);
-	console.log('hour: ', Moment(date).format('LT') );
 	return Moment(date).format('LT');
 }
 

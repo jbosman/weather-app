@@ -9,7 +9,7 @@ require('./index.scss');
 
 export default function ForecastWeatherInfo(props){
 	const { 
-			isDayForecast,
+			isDayData,
 			icon, 
 			temperature,
 			temperatureMax,
@@ -21,7 +21,7 @@ export default function ForecastWeatherInfo(props){
 		<div className='forecast-weather-info'>
 			<Conditions icon={ icon } />
 			<Temperature
-				high = { isDayForecast ? temperature : temperatureMax } 
+				high = { isDayData ? temperatureMax : temperature } 
 				low={ temperatureMin }
 			/>
 			<PrecipitationProbability probability={ precipProbability }/>

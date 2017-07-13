@@ -8,10 +8,14 @@ import FeaturedDayWeatherInfo 	from '../featured-day-weather-info';
 require('./index.scss');
 
 export default function FeaturedDay(props){
+	const { featured } = props;
+	const { time, 
+			isDayData } = featured;
+
 	return (
 		<div className='selected-day'>
-			<DateInfo timestamp={props.featured.time} />
-			<FeaturedDayWeatherInfo data={props.featured} />
+			<DateInfo timestamp={ time } isDayData={ isDayData } />
+			<FeaturedDayWeatherInfo data={ featured } />
 		</div>
 	)
 

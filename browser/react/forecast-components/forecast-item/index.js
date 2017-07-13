@@ -12,15 +12,18 @@ export default function ForecastItem(props){
 	const { index,
 			data } = props;
 
-			console.log('lala, ', data.isHourOrDay)
+	const {
+			time,
+			isDayData,
+			moonPhase } = data;
 
 	return (
-		<div className='forecast-item' onClick={ () => { 
-			props.clickHandler( index, data.isHourOrDay )
+		<div className='forecast-item' onClick={ () => {
+			props.clickHandler( data )
 		}}>
-			<DateInfo timestamp={data.time} isHourOrDay={data.isHourOrDay} />
+			<DateInfo timestamp={ time } isDayData={ isDayData } />
 			<ForecastWeatherInfo data={data} />
-			{ data.isDayForecast? <MoonPhase phase={data.moonPhase} />  : <div></div> }
+			{ isDayData ? <MoonPhase phase={ moonPhase } />  : <div></div> }
 		</div>
 	)
 }

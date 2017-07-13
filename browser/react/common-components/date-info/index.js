@@ -10,22 +10,21 @@ import { 	getHour,
 			getDateString } from '../timestampConversion';
 
 export default function DateInfo(props){
-	const { isHourOrDay, 
+	const { isDayData, 
 			timestamp } = props;
 
-			console.log(isHourOrDay)
-
-	return isHourOrDay === 'hours' ?
-		(
-			<div> 
-				<h2>{ getHour(timestamp) }</h2>
-			</div>
-		)
-		: 
+	return isDayData ?
 		( 
 			<div>
 				<h2>{ getDayOfWeek(timestamp) }</h2>
 				<h2>{ getDateString(timestamp) }</h2>
 			</div>
 		) 
+		: 
+		(
+			<div> 
+				<h2>{ getHour(timestamp) }</h2>
+			</div>
+		)
+		
 }
