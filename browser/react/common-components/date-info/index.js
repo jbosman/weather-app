@@ -15,16 +15,20 @@ export default function DateInfo(props){
 
 	return isDayData ?
 		( 
-			<div>
+			<div className='date-info'>
 				<h2>{ getDayOfWeek(timestamp) }</h2>
 				<h2>{ getDateString(timestamp) }</h2>
 			</div>
 		) 
 		: 
 		(
-			<div> 
-				<h2>{ getHour(timestamp) }</h2>
+			<div className='date-info'>
+				<i className={`wi wi-time-${getHour(timestamp)}`}></i>
 			</div>
 		)
 		
 }
+
+// <div> 
+// 	<h2>{ getHour(timestamp) }</h2>
+// </div>

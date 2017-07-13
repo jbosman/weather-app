@@ -13,7 +13,7 @@ export default function FeaturedDay(props){
 			isDayData } = featured;
 
 	return (
-		<div className='selected-day'>
+		<div className='featured-day theme-background'>
 			<DateInfo timestamp={ time } isDayData={ isDayData } />
 			<FeaturedDayWeatherInfo data={ featured } />
 		</div>

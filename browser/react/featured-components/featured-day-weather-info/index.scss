@@ -1,0 +1,31 @@
+.featured-day-weather-info {
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 25px;
+
+	.featured-conditions {
+		float: left;
+		width: 50%;
+
+		.summary {
+			margin-top: 10px;
+			margin-bottom: 20px;
+		}
+
+		.conditions{
+			i{ font-size: 500%; }
+		}
+	}
+
+	.text-conditions {
+		text-align: left;
+	}
+}
+
+
+.featured-day-weather-info:after {
+	clear: both;
+	display: table;
+	content: " ";
+}

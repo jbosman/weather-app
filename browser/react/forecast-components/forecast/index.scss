@@ -11,6 +11,12 @@
 	display: inline-block;
 }
 
+.forecast-heading {
+	margin-top: 20px;
+	margin-bottom: -30px;
+	padding: 10px;	
+}
+
 .forecast:after {
 	display: table;
 	clear: both;

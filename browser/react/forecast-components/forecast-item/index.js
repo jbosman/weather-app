@@ -18,7 +18,7 @@ export default function ForecastItem(props){
 			moonPhase } = data;
 
 	return (
-		<div className='forecast-item' onClick={ () => {
+		<div className='forecast-item theme-background' onClick={ () => {
 			props.clickHandler( data )
 		}}>
 			<DateInfo timestamp={ time } isDayData={ isDayData } />

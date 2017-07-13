@@ -29,6 +29,12 @@ export function isSameDay(date){
 
 export function getHour(timestamp){
 	const date = timestampToDate(timestamp);
+	const hour = Moment(date).hour() % 12;
+	return hour ? hour : 12 ;
+}
+
+export function getFormatedHourString(timestamp){
+	const date = timestampToDate(timestamp);
 	return timestamp ? formatHourString(date) : '-- : --';
 }
 
