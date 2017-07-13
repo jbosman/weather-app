@@ -1,22 +1,17 @@
 import React from 'react';
-import WeatherIcons from '../weather-icons';
+import { wholeNumber } from '../utility-functions';
 
 require('../weather-icons/scss/weather-icons.min.scss');
 
-require('../index.scss');
 require('./index.scss');
 
 function CorF(){
 	return true ? 'wi-fahrenheit' : 'wi-celsius';
 }
 
-function wholeNumber(value){
-	return value ? value.toFixed(0) : '';
-}
-
 export default function Temperature(props){
 	return (
-		<div className='indicator temperature'>
+		<div className='temperature'>
 			<i 	className={`wi wi-thermometer`}>
 				<i className={`wi ${CorF()}` } />
 				<div className='high'>{ wholeNumber(props.high) }</div>

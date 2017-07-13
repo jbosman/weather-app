@@ -1,0 +1,17 @@
+.precipitation-probability {
+	text-align: center;
+	
+	i {
+		display: inline-block;
+		position: relative;
+		margin: 20px auto;
+		font-size: 85px;
+	}
+
+	.probability {
+		position: absolute;
+		font-size: 20%;
+		top: 17.5%;
+		right: 30%;
+	}
+}

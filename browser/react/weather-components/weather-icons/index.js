@@ -57,5 +57,5 @@ function convertToMoonPhase(value){
 
 module.exports = {
 	convertToWeatherIcon,
-	convertToMoonPhase
+	convertToMoonPhase,
 }
