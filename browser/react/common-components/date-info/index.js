@@ -13,7 +13,9 @@ export default function DateInfo(props){
 	const { isHourOrDay, 
 			timestamp } = props;
 
-	return isHourOrDay ?
+			console.log(isHourOrDay)
+
+	return isHourOrDay === 'hours' ?
 		(
 			<div> 
 				<h2>{ getHour(timestamp) }</h2>
