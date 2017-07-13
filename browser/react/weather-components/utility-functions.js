@@ -3,7 +3,7 @@ function wholeNumber(value){
 }
 
 function percentage(value){
-	return typeof value === 'number' ? wholeNumber(value * 100) + '%' : '';
+	return typeof value === 'number' ? wholeNumber(value * 100) : -1;
 }
 
 module.exports = {

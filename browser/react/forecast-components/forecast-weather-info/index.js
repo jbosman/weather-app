@@ -3,6 +3,7 @@ import React from 'react';
 import Conditions 	from '../../weather-components/conditions-indicator';
 import Temperature 	from '../../weather-components/temperature-indicator';
 import PrecipitationProbability from '../../weather-components/precipitation-probability-indicator';
+import Humidity from '../../weather-components/humidity-indicator';
 
 require('./index.scss');
 
@@ -11,7 +12,8 @@ export default function ForecastWeatherInfo(props){
 			temperature,
 			temperatureMax,
 			temperatureMin,
-			precipProbability } = props.data ? props.data : '--' ;
+			precipProbability, 
+			humidity } = props.data ? props.data : '--' ;
 			
 	return (
 		<div className='forecast-weather-info'>
@@ -21,6 +23,7 @@ export default function ForecastWeatherInfo(props){
 				low={ temperatureMin }
 			/>
 			<PrecipitationProbability probability={ precipProbability }/>
+			<Humidity humidity={ humidity } />
 		</div>
 	)
 }

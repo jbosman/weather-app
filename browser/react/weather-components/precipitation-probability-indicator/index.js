@@ -8,7 +8,7 @@ export default function PrecipitationProbilityIndicator(props){
 	return (
 		<div className='precipitation-probability'>
 			<i className='wi wi-umbrella'>
-				<div className='probability'> { percentage(probability) } </div>
+				<div className='probability'> { percentage(probability) + '%' } </div>
 			</i>
 		</div>
 	)
