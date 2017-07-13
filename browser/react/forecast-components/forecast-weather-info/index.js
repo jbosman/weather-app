@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ConditionsIndicator 	from '../../weather-components/conditions-indicator';
-import Temperature 			from '../../weather-components/temperature-component';
+import Temperature 			from '../../weather-components/temperature-indicator';
 
 require('./index.scss');
 
