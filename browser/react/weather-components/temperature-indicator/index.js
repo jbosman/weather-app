@@ -3,6 +3,7 @@ import WeatherIcons from '../weather-icons';
 
 require('../weather-icons/scss/weather-icons.min.scss');
 
+require('../index.scss');
 require('./index.scss');
 
 function CorF(){
@@ -15,7 +16,7 @@ function wholeNumber(value){
 
 export default function Temperature(props){
 	return (
-		<div className='temperature'>
+		<div className='indicator temperature'>
 			<i 	className={`wi wi-thermometer`}>
 				<i className={`wi ${CorF()}` } />
 				<div className='high'>{ wholeNumber(props.high) }</div>
