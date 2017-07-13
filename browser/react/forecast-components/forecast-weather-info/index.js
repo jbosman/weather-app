@@ -8,7 +8,9 @@ import Humidity from '../../weather-components/humidity-indicator';
 require('./index.scss');
 
 export default function ForecastWeatherInfo(props){
-	const { icon, 
+	const { 
+			isDayForecast,
+			icon, 
 			temperature,
 			temperatureMax,
 			temperatureMin,
@@ -19,7 +21,7 @@ export default function ForecastWeatherInfo(props){
 		<div className='forecast-weather-info'>
 			<Conditions icon={ icon } />
 			<Temperature
-				high = { typeof temperature === 'number' ? temperature : temperatureMax } 
+				high = { isDayForecast ? temperature : temperatureMax } 
 				low={ temperatureMin }
 			/>
 			<PrecipitationProbability probability={ precipProbability }/>

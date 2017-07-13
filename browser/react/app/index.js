@@ -29,8 +29,8 @@ export default class App extends Component {
 		this.handleUserClick = this.handleUserClick.bind(this);
 	}
 
-	handleUserClick( index, isHourOrDay ){
-		const dataArray = isHourOrDay === 'hour' ? this.state.hourly : this.state.forecast;
+	handleUserClick( index, isDayForecast ){
+		const dataArray = isDayForecast ? this.state.forecast : this.state.hourly;
 
 		if( dataArray.data && dataArray.data.length ){
 			this.setState({ 
@@ -57,22 +57,25 @@ export default class App extends Component {
 	  
 	}
 
-	loadForecast(isHoursOrDays){
+	loadForecast(isDayForecast = 'days'){
+		const daysOrHours = isDayForecast === 'days' ? true: false;
 		const numOfHoursToDisplay = 12;
 
 		const numOfForecastItems = 
-			isHoursOrDays === 'hours' ? 
-				numOfHoursToDisplay 
-				: this.state.forecast.data.length;
+			daysOrHours ? 
+				this.state.forecast.data.length
+				: numOfHoursToDisplay; 
+				
 
 		const data = 
-			isHoursOrDays === 'hours' ? 
-				this.state.hourly.data 
-				: this.state.forecast.data;
+			daysOrHours ? 
+				this.state.forecast.data
+				: this.state.hourly.data;
+				
 
 		return data.map( ( itemData, i) => {
 			if( i < numOfForecastItems ){
-				itemData.isHourOrDay = isHoursOrDays;
+				itemData.isDayForecast = daysOrHours;
 				return <ForecastItem 
 							key={i} 
 							data={itemData} 
