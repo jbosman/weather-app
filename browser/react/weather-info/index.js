@@ -18,11 +18,11 @@ function formatToPercentage(value){
 	return formatToWholeNum(value * 100)  + '%' 
 }
 
-function displayWholeValue(value){
+function wholeValue(value){
 	return isValueReady(value) ? formatToWholeNum(value) : '--';
 }
 
-function displayPercentage(value){
+function wholePercentage(value){
 	return isValueReady(value) ? formatToPercentage(value) : '-- %';
 }
 

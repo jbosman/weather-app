@@ -3,6 +3,7 @@ import React from 'react';
 require('./index.scss');
 
 import Conditions from '../../weather-components/conditions-indicator';
+import PrecipitationGauge from '../../weather-components/precipitation-gauge';
 
 export default function FeaturedDayWeatherInfo(props){
 	const {
@@ -20,7 +21,9 @@ export default function FeaturedDayWeatherInfo(props){
 		windGust,
 		windBearing,
 		visibility,
-		cloudCover
+		cloudCover,
+		pressure,
+		uvIndex
 
 	} = data;
 
@@ -33,13 +36,15 @@ export default function FeaturedDayWeatherInfo(props){
 				<Conditions icon={ icon } />
 			</div>
 			<div className='text-conditions'>
-				<div>Probability: { precipProbability }%</div>
-				<div>Type: { precipType }</div>
+				<PrecipitationGauge type={ precipType } probability={precipProbability} />
 				<div>Dew Point: { dewPoint }</div>
 				<div>Humidty: { humidity }%</div>
 				<div>Wind Speed: { windSpeed }</div>
 				<div>Wind Gusts: { windGust }</div>
 				<div>Wind Bearing: { windBearing }</div>
+				<div>Cloud Cover: { cloudCover }</div>
+				<div>Atmospheric Pressure: { pressure }</div>
+				<div>UV Index: { uvIndex }</div>
 			</div>
 		</div>
 	)
