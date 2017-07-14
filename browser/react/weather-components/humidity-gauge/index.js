@@ -8,16 +8,15 @@ import { percentage } from '../utility-functions';
 require('../index.scss');
 require('./index.scss');
 
-export default function PrecipitationGauge(props){
+export default function HumidityGauge(props){
 
-	const { probability, type } = props;
+	const { percent, type } = props;
 
 	return (
 		<div className='gauge-container'>
-			<div>Precipitation</div>
+			<div>Humidity</div>
 			<div className='gauge-details'>
-				<div>{ type }</div>
-				<Gauge precentage={ percentage(probability) } />
+				<Gauge precentage={ percentage(percent) } />
 			</div>
 		</div>
 	)

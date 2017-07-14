@@ -4,6 +4,8 @@ require('./index.scss');
 
 import Conditions from '../../weather-components/conditions-indicator';
 import PrecipitationGauge from '../../weather-components/precipitation-gauge';
+import HumidityGauge from '../../weather-components/humidity-gauge';
+import CloudCoverGauge from '../../weather-components/cloud-cover-gauge';
 
 export default function FeaturedDayWeatherInfo(props){
 	const {
@@ -34,15 +36,17 @@ export default function FeaturedDayWeatherInfo(props){
 			<div className='featured-conditions'>
 				<div className='summary'>{ summary }</div>
 				<Conditions icon={ icon } />
+
 			</div>
-			<div className='text-conditions'>
+			<div className='featured-group-1'>
 				<PrecipitationGauge type={ precipType } probability={precipProbability} />
+				<HumidityGauge 		percent={humidity} />
+				<CloudCoverGauge percent={cloudCover} />
+		
 				<div>Dew Point: { dewPoint }</div>
-				<div>Humidty: { humidity }%</div>
 				<div>Wind Speed: { windSpeed }</div>
 				<div>Wind Gusts: { windGust }</div>
 				<div>Wind Bearing: { windBearing }</div>
-				<div>Cloud Cover: { cloudCover }</div>
 				<div>Atmospheric Pressure: { pressure }</div>
 				<div>UV Index: { uvIndex }</div>
 			</div>
