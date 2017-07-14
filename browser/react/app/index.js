@@ -20,6 +20,7 @@ export default class App extends Component {
 		super();
 		this.state = {
 			coordinates: {},
+			readableLocation: '',
 			featured: {},
 			current: {},
 			hourly: [],
@@ -78,55 +79,78 @@ export default class App extends Component {
 	}
 
 	componentDidMount(){
+		let latitude = '';
+		let longitude = '';
+
 		//Acutal request for weather info
-		// this.getLocation()
-		// .then( position => {
-		// 	return axios.get(`api/weather/${position.coords.latitude}/${position.coords.longitude}`)
-		// })
-		// .then( resp => {
-		// 	const weatherInfo = resp.data;
-			
-		// 	this.setState({
-		// 		coordinates: { 
-		// 			longitude: weatherInfo.longitude, 
-		// 			latitude: weatherInfo.latitude 
-		// 		},
-		// 		featured: weatherInfo.currently,
-		// 		currently: weatherInfo.currently,
-		// 		hourly: weatherInfo.hourly,
-		// 		forecast: weatherInfo.daily,
-		// 		background: weatherInfo.currently.icon
-		// 	})
-		// })
-		// .catch(console.error)
-
-		// Stubbing this in right now for debugging
-
-		const weatherInfo = getWeatherDataObj();
-		weatherInfo.hourly.data.forEach( (hour) => { hour.isDayData = false; });
-		weatherInfo.daily.data.forEach(  (day)  => { day.isDayData = true; })
-
-		this.setState({
-			coordinates: { 
-				longitude: 	weatherInfo.longitude, 
-				latitude: 	weatherInfo.latitude 
-			},
-			featured: 	weatherInfo.currently,
-			currently: 	weatherInfo.currently,
-			hourly: 	weatherInfo.hourly,
-			forecast: 	weatherInfo.daily,
-			background: weatherInfo.currently.icon
+		this.getLocation()
+		.then( positionData => {
+			latitude = positionData.coords.latitude;
+			longitude = positionData.coords.longitude;
+			return axios.get(`api/weather/${latitude}/${longitude}`)
 		})
+		.then( resp => {
+			const weatherInfo = resp.data;
+
+			weatherInfo.hourly.data.forEach( (hour) => { hour.isDayData = false; });
+			weatherInfo.daily.data.forEach(  (day)  => { day.isDayData = true; });
+			
+			this.setState({
+				coordinates: { 
+					longitude: weatherInfo.longitude, 
+					latitude: weatherInfo.latitude 
+				},
+				featured: weatherInfo.currently,
+				currently: weatherInfo.currently,
+				hourly: weatherInfo.hourly,
+				forecast: weatherInfo.daily,
+				background: weatherInfo.currently.icon
+			})
+		})
+		.then( () => {
+			return axios.get(`api/reverse-geolocation/${latitude}/${longitude}`)
+		})
+		.then( resp => {
+			console.log('here', resp.data.results[1].formatted_address)
+			this.setState({
+				readableLocation: resp.data.results[1].formatted_address
+			})
+		})
+		.catch(console.error)
+
+		// The code below was used for debugging to save time when reloading the page
+
+		// const weatherInfo = getWeatherDataObj();
+		// weatherInfo.hourly.data.forEach( (hour) => { hour.isDayData = false; });
+		// weatherInfo.daily.data.forEach(  (day)  => { day.isDayData = true; });
+
+		// this.setState({
+		// 	coordinates: { 
+		// 		longitude: 	weatherInfo.longitude, 
+		// 		latitude: 	weatherInfo.latitude 
+		// 	},
+		// 	featured: 	weatherInfo.currently,
+		// 	currently: 	weatherInfo.currently,
+		// 	hourly: 	weatherInfo.hourly,
+		// 	forecast: 	weatherInfo.daily,
+		// 	background: weatherInfo.currently.icon
+		// })
 	}
 
 	render(){
-		if( !this.state.forecast.data )
+		const { 
+				forecast,
+				background, 
+				featured,
+				readableLocation } = this.state;
+
+		if( !forecast.data )
 			return <LoadingPage />;
 		else {
 			return (
-				<div className={`app-component hero-background ${this.state.background}`}>
+				<div className={`app-component hero-background ${ background }`}>
 					<div className='app-border'>
-						<FeaturedDay featured={this.state.featured} />
+						<FeaturedDay featured={ featured } location={ readableLocation } />
 						<Forecast>
 							{ this.loadHourForecast() }
 						</Forecast>

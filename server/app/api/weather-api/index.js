@@ -30,7 +30,9 @@ module.exports = app => {
 		
 		let queryType = getQueryType(type);
 
-		const URL = `${WEATHER_API_START}/${req.params.lat},${req.params.long}${queryType}`;
+		const { lat, long } = req.params;
+
+		const URL = `${WEATHER_API_START}/${lat},${long}${queryType}`;
 		
 		axios.get( URL )
 		.then( resp => {
