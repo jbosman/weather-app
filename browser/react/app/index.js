@@ -139,6 +139,7 @@ export default class App extends Component {
 
 	render(){
 		const { 
+				hourly,
 				forecast,
 				background, 
 				featured,
@@ -151,10 +152,10 @@ export default class App extends Component {
 				<div className={`app-component hero-background ${ background }`}>
 					<div className='app-border'>
 						<FeaturedDay featured={ featured } location={ readableLocation } />
-						<Forecast>
+						<Forecast heading={'12-Hour Forecast'} summary={ hourly.summary }>
 							{ this.loadHourForecast() }
 						</Forecast>
-						<Forecast>
+						<Forecast heading={ 'Weekly Forecast' } summary={ forecast.summary }>
 							{ this.loadDayForecast() }
 						</Forecast>
 					</div>

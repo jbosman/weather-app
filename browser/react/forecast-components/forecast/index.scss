@@ -11,14 +11,12 @@
 	display: inline-block;
 }
 
-.forecast-heading {
+.forecast-heading-container {
 	margin-top: 20px;
 	margin-bottom: -30px;
 	padding: 10px;	
-}
 
-.forecast:after {
-	display: table;
-	clear: both;
-	content: " ";
+	.forecast-heading { text-decoration: 'underline white'; }
+
+	.forecast-summary{ font-size: 80%; }
 }

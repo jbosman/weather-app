@@ -5,13 +5,20 @@ import React from 'react';
 require('./index.scss');
 
 export default function Forecast(props){
+	const {
+		heading,
+		summary,
+		children
+	} = props;
+
 	return (
-		<div>
-			<div className='forecast-heading theme-background'>
-				{ props.children.length > 8 ? "12-Hour Forecast": "Weekly Forecast" }
+		<div className='forecast-container'>
+			<div className='forecast-heading-container theme-background'>
+				<div className='forecast-heading'>{ heading }</div>
+				<div className='forecast-summary'>{ summary }</div>
 			</div>
 			<div className='forecast'>
-				{ props.children }
+				{ children }
 			</div>
 		</div>
 	)

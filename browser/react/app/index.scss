@@ -15,7 +15,15 @@
 	background-position: center center;
 }
 
-.app-border { padding: 10px 5%; }
+.app-border { 
+	padding: 10px 5%;
+	text-align: center; 
+}
+
+.app-border > * {
+	display: inline-block;
+	width: 95%;
+}
 
 .theme-background {
 	background-color: rgba( 22,22,22, 0.75);
