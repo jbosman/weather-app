@@ -2,7 +2,7 @@ import React from 'react';
 
 require('./index.scss');
 
-import Conditions from '../../weather-components/weather-icons-custom/conditions-icon';
+import Conditions from '../../weather-components/weather-indicators/conditions-indicator';
 import Gauge from '../../weather-components/weather-indicators/gauge-indicator';
 import WindIndicator from '../../weather-components/weather-indicators/wind-indicator';
 
@@ -14,7 +14,6 @@ export default function FeaturedDayWeatherInfo(props){
 	const {
 		summary,
 		icon,
-
 		precipProbability,
 		dewPoint,
 		humidity,
@@ -32,10 +31,8 @@ export default function FeaturedDayWeatherInfo(props){
 
 	return (
 		<div className='featured-day-weather-info'>
-			<div className='featured-group featured-conditions'>
-				<div className='summary'>{ summary }</div>
-				<Conditions icon={ icon } />
-
+			<div className='featured-group' >
+				<Conditions summary={summary} icon={icon} />
 			</div>
 			<div className='featured-group'>
 				<Gauge title={ `Precipication: ${precipType}` } fillPercentage={precipProbability} />

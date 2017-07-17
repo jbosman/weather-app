@@ -55,17 +55,7 @@ function convertToMoonPhase(value){
 	return phaseIcons[Math.floor(value * numOfPhases)];
 }
 
-function wholeNumber(value){
-	return typeof value === 'number' ? value.toFixed(0) : '';
-}
-
-function percentage(value){
-	return typeof value === 'number' ? wholeNumber(value * 100) : -1;
-}
-
 module.exports = {
 	convertToWeatherIcon,
-	convertToMoonPhase,
-	wholeNumber,
-	percentage
+	convertToMoonPhase
 }

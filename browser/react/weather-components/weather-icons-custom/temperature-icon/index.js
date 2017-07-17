@@ -1,5 +1,5 @@
 import React from 'react';
-import { wholeNumber } from '../utility-functions';
+import { wholeNumber } from '../../utility-functions';
 
 require('../../weather-icons/scss/weather-icons.min.scss');
 

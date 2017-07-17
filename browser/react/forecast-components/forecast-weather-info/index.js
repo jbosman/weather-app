@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Conditions 	from '../../weather-components/weather-icons-custom/conditions-icon';
+import ConditionsIcon 	from '../../weather-components/weather-icons-custom/conditions-icon';
 import Temperature 	from '../../weather-components/weather-icons-custom/temperature-icon';
 import PrecipitationProbability from '../../weather-components/weather-icons-custom/precipitation-probability-icon';
 import Humidity from '../../weather-components/weather-icons-custom/humidity-icon';
@@ -19,7 +19,7 @@ export default function ForecastWeatherInfo(props){
 			
 	return (
 		<div className='forecast-weather-info'>
-			<Conditions icon={ icon } />
+			<ConditionsIcon icon={ icon } />
 			<Temperature
 				high = { isDayData ? temperatureMax : temperature } 
 				low={ temperatureMin }

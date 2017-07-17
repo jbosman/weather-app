@@ -6,10 +6,14 @@ import { convertToWeatherIcon } from '../utility-functions';
 
 require('./index.scss');
 
-export default function Conditions(props){
+export default function ConditionsIcon(props){
+
+	const { icon } = props;
+
 	return (
-		<div className='conditions'>
-			<i className={`wi ${ convertToWeatherIcon(props.icon)}` }></i>
+		<div className='conditions-icon'>
+			<i className={`wi ${ convertToWeatherIcon(icon)}` }></i>
 		</div>
 	)
 }
+
