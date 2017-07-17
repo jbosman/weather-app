@@ -1,7 +1,7 @@
 import React from 'react';
 import { wholeNumber } from '../utility-functions';
 
-require('../weather-icons/scss/weather-icons.min.scss');
+require('../../weather-icons/scss/weather-icons.min.scss');
 
 require('./index.scss');
 

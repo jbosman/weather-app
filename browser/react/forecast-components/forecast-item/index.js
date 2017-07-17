@@ -4,7 +4,7 @@ import React from 'react';
 
 import DateInfo from '../../common-components/date-info';
 import ForecastWeatherInfo from '../forecast-weather-info';
-import MoonPhase from '../../weather-components/moon-phase-indicator';
+import MoonPhase from '../../weather-components/weather-icons-custom/moon-phase-icon';
 
 require('./index.scss');
 

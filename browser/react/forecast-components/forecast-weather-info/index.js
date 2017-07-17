@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Conditions 	from '../../weather-components/conditions-indicator';
-import Temperature 	from '../../weather-components/temperature-indicator';
-import PrecipitationProbability from '../../weather-components/precipitation-probability-indicator';
-import Humidity from '../../weather-components/humidity-indicator';
+import Conditions 	from '../../weather-components/weather-icons-custom/conditions-icon';
+import Temperature 	from '../../weather-components/weather-icons-custom/temperature-icon';
+import PrecipitationProbability from '../../weather-components/weather-icons-custom/precipitation-probability-icon';
+import Humidity from '../../weather-components/weather-icons-custom/humidity-icon';
 
 require('./index.scss');
 

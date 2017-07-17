@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-require('../weather-icons/scss/weather-icons.min.scss');
-require('../weather-icons/scss/weather-icons-wind.min.scss');
+require('../../weather-icons/scss/weather-icons.min.scss');
+require('../../weather-icons/scss/weather-icons-wind.min.scss');
 require('./index.scss');
 
 function rotateCompassNeedle(heading){

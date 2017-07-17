@@ -1,5 +1,7 @@
+'use strict'
+
 import React from 'react';
-import { convertToMoonPhase } from '../weather-icons';
+import { convertToMoonPhase } from '../utility-functions';
 
 require('./index.scss');
 

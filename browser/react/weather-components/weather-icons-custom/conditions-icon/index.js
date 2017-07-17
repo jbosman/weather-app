@@ -1,6 +1,8 @@
+'use strict'
+
 import React from 'react';
 
-import { convertToWeatherIcon } from '../../weather-components/weather-icons';
+import { convertToWeatherIcon } from '../utility-functions';
 
 require('./index.scss');
 

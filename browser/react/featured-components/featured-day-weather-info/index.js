@@ -2,9 +2,9 @@ import React from 'react';
 
 require('./index.scss');
 
-import Conditions from '../../weather-components/conditions-indicator';
-import Gauge from '../../weather-components/gauge';
-import WindIndicator from '../../weather-components/wind-indicator';
+import Conditions from '../../weather-components/weather-icons-custom/conditions-icon';
+import Gauge from '../../weather-components/weather-indicators/gauge-indicator';
+import WindIndicator from '../../weather-components/weather-indicators/wind-indicator';
 
 export default function FeaturedDayWeatherInfo(props){
 	const {

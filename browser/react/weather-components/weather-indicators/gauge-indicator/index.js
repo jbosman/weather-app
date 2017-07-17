@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { percentage } from '../utility-functions';
+import { percentage } from '../../utility-functions';
 require('./index.scss');
 
 export default function Gauge(props){
