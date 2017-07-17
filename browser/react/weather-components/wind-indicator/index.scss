@@ -1,0 +1,85 @@
+.wind-indicator {
+	text-align: center;
+
+	.compass-label,
+	.wind-speed-label,
+	.wind-gust-speed-label
+	 { font-size: 80%; }
+
+	.wind-speed-details {
+		margin: 10px 0;
+	}
+
+	.wind-speed-details:after {
+		display: table;
+		clear: both;
+		content: ' ';
+	}
+
+	.wind-container { 
+		display: inline-block;
+		margin: 0 10px; 
+	}
+
+	.compass-needle-container {
+		position: relative;
+		text-align: center;
+		font-size: 125px;
+		color: transparent;
+		margin-top: 15px;
+	}
+
+	.compass-needle {
+		position: absolute;
+		color: white;
+		top: 0;
+		left: 0;
+	}
+	
+	.north, 
+	.north-east, 
+	.east, 
+	.south-east, 
+	.south, 
+	.south-west, 
+	.west, 
+	.north-west {
+		position: absolute;
+		font-size: 25px;
+		color: white;
+	}
+
+	.north { top: -0.5em; }
+	.south { bottom: -0.5em; }
+
+	.north, .south {
+		left: 50%;
+		transform: translateX(-50%);	
+	}
+
+	.east { right: -1em; }
+
+	.west { left: -1.25em; }
+
+	.east, .west {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.north-east, .south-east, .south-west, .north-west {
+		font-size: 12.5px;
+	}
+
+	.north-east, .east, .south-east { text-align: left }
+	.north-west, .west, .south-west { text-align: right }
+
+	.north-east, .north-west { top: 10%; }
+	.south-east, .south-west { bottom: 10% }
+
+	.north-east, .south-east { 
+		right: -7.5%; 
+	}
+	.north-west, .south-west { 
+		left: -7.5%;
+	}
+}
