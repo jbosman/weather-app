@@ -36,12 +36,21 @@ module.exports = {
 			},
 			{
 				exclude: /(node_modules)/,
-			  	test: /\.gif$/,
+			  	test: /\.(html|ico)$/,
+			  	loader: 'file-loader',
+			  	options: {
+			  		name: '[name].[ext]'
+			  	}
+			},
+			{
+				exclude: /(node_modules)/,
+			  	test: /\.(gif)$/,
 			  	loader: 'file-loader',
 			  	options: {
 			  		name: 'gifs/[name].[ext]'
 			  	}
 			}
+			
 		]
 	}
 }
