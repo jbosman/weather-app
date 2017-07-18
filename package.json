@@ -1,11 +1,16 @@
 {
   "name": "website-2017",
   "version": "1.0.0",
-  "description": "2017 Version of my personal website.",
-  "main": "index.js",
+  "description": "Weather application using react and the dark sky weather api.",
+  "main": "server/index.js",
+  "engines": {
+    "node": "6.2.2",
+    "npm": "3.10.6"
+  },
   "scripts": {
     "start": "webpack --progress --colors -w & nodemon server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "webpack --progress --colors -w"
   },
   "keywords": [],
   "author": "Joe Bosman",
