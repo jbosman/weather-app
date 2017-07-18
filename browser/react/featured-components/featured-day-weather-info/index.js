@@ -32,8 +32,6 @@ export default function FeaturedDayWeatherInfo(props){
 
 	} = data;
 
-	console.log('featured:', temperature )
-
 	const precipType = !data.precipType ? 'none' : data.precipType;
 
 	return (

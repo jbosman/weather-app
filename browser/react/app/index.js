@@ -118,7 +118,6 @@ export default class App extends Component {
 			return axios.get(`api/reverse-geolocation/${latitude}/${longitude}`)
 		})
 		.then( resp => {
-			console.log('here', resp.data.results[1].formatted_address)
 			this.setState({
 				readableLocation: resp.data.results[1].formatted_address
 			})
