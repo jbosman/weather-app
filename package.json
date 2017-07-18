@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "webpack --progress --colors -w"
+    "postinstall": "webpack --progress --colors"
   },
   "keywords": [],
   "author": "Joe Bosman",
