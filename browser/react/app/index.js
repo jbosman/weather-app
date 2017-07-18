@@ -25,17 +25,22 @@ export default class App extends Component {
 			current: {},
 			hourly: [],
 			forecast: [],
-			background: 'loading'
+			isFahrenheit: true,
+			background: 'loading',
 		}
-		this.handleUserClick = this.handleUserClick.bind(this);
+		this.handleUserForecastClick = this.handleUserForecastClick.bind(this);
+		this.handleTemperatureConverversionClick = this.handleTemperatureConversionClick.bind(this);
 	}
 
-	handleUserClick( data){
-		
+	handleUserForecastClick(data){
 			this.setState({ 
 				featured: data, 
 				background: data.icon 
 			});
+	}
+
+	handleTemperatureConversionClick(value){
+		this.setState({isFahrenheit: value})
 	}
 
 	getLocation(){
@@ -61,8 +66,10 @@ export default class App extends Component {
 				return <ForecastItem 
 							key={i} 
 							data={itemData} 
-							index={i} 
-							clickHandler={this.handleUserClick} 
+							index={i}
+							isFahrenheit={this.state.isFahrenheit}
+							temperatureCoversionFunction={this.state.temperatureConversionFunction}
+							clickHandler={this.handleUserForecastClick} 
 						/>
 			}
 		})
@@ -143,7 +150,8 @@ export default class App extends Component {
 				forecast,
 				background, 
 				featured,
-				readableLocation } = this.state;
+				readableLocation,
+				isFahrenheit } = this.state;
 
 		if( !forecast.data )
 			return <LoadingPage />;
@@ -151,7 +159,11 @@ export default class App extends Component {
 			return (
 				<div className={`app-component hero-background ${ background }`}>
 					<div className='app-border'>
-						<FeaturedDay featured={ featured } location={ readableLocation } />
+						<FeaturedDay 
+							featured={ featured } 
+							location={ readableLocation }
+							isFahrenheit = { isFahrenheit } 
+						/>
 						<Forecast heading={'12-Hour Forecast'} summary={ hourly.summary }>
 							{ this.loadHourForecast() }
 						</Forecast>

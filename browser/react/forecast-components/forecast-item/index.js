@@ -10,7 +10,8 @@ require('./index.scss');
 
 export default function ForecastItem(props){
 	const { index,
-			data } = props;
+			data,
+			isFahrenheit } = props;
 
 	const {
 			time,
@@ -22,7 +23,7 @@ export default function ForecastItem(props){
 			props.clickHandler( data )
 		}}>
 			<DateInfo timestamp={ time } isDayData={ isDayData } />
-			<ForecastWeatherInfo data={data} />
+			<ForecastWeatherInfo data={data} isFahrenheit={isFahrenheit} />
 			{ isDayData ? <MoonPhase phase={ moonPhase } />  : <div></div> }
 		</div>
 	)
