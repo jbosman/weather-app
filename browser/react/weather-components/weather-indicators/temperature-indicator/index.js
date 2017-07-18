@@ -26,8 +26,10 @@ export default function TemperatureIndicator(props){
 			{
 				hourOrDay(temperature) ?
 					<div className='temperature-details'>
-						<Temperature value={temperature} isFahrenheit={isFahrenheit} />
-						<TemperatureUnit isFahrenheit={isFahrenheit} />
+						<div className='current'>
+							<Temperature value={temperature} isFahrenheit={isFahrenheit} />
+							<TemperatureUnit isFahrenheit={isFahrenheit} />
+						</div>
 					</div>
 					:(
 					<div className='temperature-details'>

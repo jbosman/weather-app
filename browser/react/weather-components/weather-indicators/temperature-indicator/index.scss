@@ -5,8 +5,17 @@
 	.temperature-details {
 		margin-top: 10px;
 
-		.temperature, .temperature-icon {
-			font-size: 200%;
+
+		.current {
+			.temperature, .temperature-icon{
+				font-size: 400%;
+			}
+		}
+
+		.high, .low {
+			.temperature, .temperature-icon {
+				font-size: 200%;
+			}
 		}
 	}
 
