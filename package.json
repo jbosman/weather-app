@@ -4,11 +4,12 @@
   "description": "Weather application using react and the dark sky weather api.",
   "main": "server/index.js",
   "engines": {
-    "node": "6.2.2",
+    "node": "6.11.1",
     "npm": "3.10.6"
   },
   "scripts": {
     "start": "nodemon server/index.js",
+    "developing-start": "webpack --progress --colors -w & nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack --progress --colors"
   },
