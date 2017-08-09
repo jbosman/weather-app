@@ -1,11 +1,5 @@
 # Weather App
 
-### Desktop View
-![Alt text](/desktopView.jpg?raw=true)
-
-### Mobile View
-![Alt text](/mobileView.jpg?raw=true)
-
 # Description
 This is a responsive, single page application that grabs the user's current location and provides both a 12-hour forecast and 7-day forecast. The user can click on a particular hour or day to see more data on the their selection at the top of the page.
 
@@ -20,3 +14,9 @@ List of technoligies used:
 	- DarkSky API
 	- Google Maps API
 	- HTML5 Geolocation
+
+### Desktop View
+![Alt text](/desktopView.jpg?raw=true)
+
+### Mobile View
+![Alt text](/mobileView.jpg?raw=true)
