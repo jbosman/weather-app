@@ -26,7 +26,7 @@ export default function WindIndicator(props){
 
 	return (
 		<div className='wind-indicator'>
-			<div>Wind</div>
+			<div>Wind (mph)</div>
 			<div className='wind-speed-details'>
 				<div className='wind-container'>
 					<div className='wind-speed-label'>Speed</div>

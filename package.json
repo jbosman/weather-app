@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "developing-start": "webpack --progress --colors -w & nodemon server/index.js",
+    "dev-start": "webpack --progress --colors -w & nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack --progress --colors"
   },
